@@ -1,0 +1,20 @@
+Day 1:
+========================
+YT Code Babbar:
+Lecture 1: Intro to Programming & Flowcharts
+
+For any problem, do this 4 things:
+>> Understand the problem properly
+>> Find out the given values in the problem 
+>> Try to find out the one approach to solve
+>> Program: Code It...!
+
+For this, we will first write 
+Pseudocode/Flowchart(Rough Soln)==> Then write 
+Source Code (Program)==> Then we will convert it into 
+Machine Understandable format 
+
+
+
+
+
