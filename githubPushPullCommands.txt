@@ -2,13 +2,15 @@ ChangeDirectory: cd
 Create folder: mkdir FolderName
 Create file: type FileName
 Clond Directory: git clone https://github.com/dipakmeher/90DaysOfCoding.git
-Add Directory in Push: git add .
-Commit to Repo: git commit -m "Put Message"
-
 Optional: git config user.name "dipakmeher"
 Optional: git config user.email "dipakmeher54@gmail.com"
 Optional: git remote add origin <Link to GitHub Repo>     //maps the remote repo link to local git repo
 
 Optional: git remote -v                                  //this is to verify the link to the remote repo 
+
+
+Add Directory in Push: git add .
+Commit to Repo: git commit -m "Put Message"
+
 
 Push to Main Branch: git push -u origin master          
