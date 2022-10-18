@@ -8,9 +8,13 @@ Optional: git remote add origin <Link to GitHub Repo>     //maps the remote repo
 
 Optional: git remote -v                                  //this is to verify the link to the remote repo 
 
-
+Check branch: git branch
+Create new branch: git branch Branch_Name
+Go to new branch: git checkout Branch_Name
+Check Status: git status
 Add Directory in Push: git add .
+Check Status: git status
 Commit to Repo: git commit -m "Put Message"
-
-
-Push to Main Branch: git push -u origin master          
+Change to Main: git checkout main   
+Push to Main Branch: git push -u origin main   
+List the last 5 commits: git log --oneline

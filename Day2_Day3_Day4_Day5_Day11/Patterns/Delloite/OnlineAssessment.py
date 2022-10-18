@@ -1,5 +1,5 @@
 #Minimum number of flips required to achieve equal number of heads-0 and tails- 1
-
+# The code was working fine without numpy array. In CA, in python, the array would be list only
 import numpy as np
 Z = [1,0,0,1,0,0]
 #A = [int(i) for i in Z]
