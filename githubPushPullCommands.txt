@@ -16,5 +16,8 @@ Add Directory in Push: git add .
 Check Status: git status
 Commit to Repo: git commit -m "Put Message"
 Change to Main: git checkout main   
-Push to Main Branch: git push -u origin main   
+Merge branches: git merge Branch_Name
 List the last 5 commits: git log --oneline
+====
+Push to Main Branch: git push -u origin main   
+
