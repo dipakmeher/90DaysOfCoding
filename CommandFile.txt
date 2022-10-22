@@ -10,11 +10,14 @@ Optional: git remote -v                                  //this is to verify the
 
 Check branch: git branch
 Create new branch: git branch Branch_Name
+Create Branch and Switch to it: git checkout -b Branch_Name
 Go to new branch: git checkout Branch_Name
 Check Status: git status
 Add Directory in Push: git add .
 Check Status: git status
 Commit to Repo: git commit -m "Put Message"
+Push the Branch to Git: git push --set-upstream origin Day15
+
 Change to Main: git checkout main   
 Merge branches: git merge Branch_Name
 List the last 5 commits: git log --oneline
