@@ -172,7 +172,7 @@ int delete_from_list() // deleting the address and alias from the linked list
         scanf("%s", &ch);
         if (ch == 'y')
         {
-            if (prev != NULL)
+            if (prev != NULL) // we can change the code here 
                 prev->next = del->next;
 
             if (del == curr)
@@ -203,7 +203,7 @@ int add_address() // reading the input format and passing the value to add_to_li
         scanf("%s", alias);
         if (strlen(alias) <= 10)
         {
-            if (search_in_list(alias, &prev))
+            if (search_in_list(alias, &prev)) //D? Why to use prev
             {
                 printf("error:%s already exists", alias);
                 return -1;
