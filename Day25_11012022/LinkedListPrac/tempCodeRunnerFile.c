@@ -1,0 +1,2 @@
+free(delNode);
+    delNode = NULL;
