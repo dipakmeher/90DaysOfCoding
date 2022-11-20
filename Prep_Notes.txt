@@ -1,0 +1,11 @@
+Day 40 - 11/16/2022:
+
+Google Prep: 
+
+List - YT Programming with Mosh
+
+append("a") - insert at end <> pop(index) - remove at end 
+insert(index, "b") - insert at specific index <> remove("b") -  removes the first occurance of the b in list
+del letter[0:3] - delete range of items in list
+letter.clear() -  clear the entire list
+

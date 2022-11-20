@@ -14,3 +14,4 @@ tail = li.count("1")
 res = abs(head-tail)
 
 print(res/2)
+      
