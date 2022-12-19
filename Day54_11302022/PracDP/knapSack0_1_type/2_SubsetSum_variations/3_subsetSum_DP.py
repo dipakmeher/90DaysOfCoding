@@ -13,8 +13,8 @@ def subsetSum(Arr, n, Sum):
             if(j == 0):
                 k[i][0] = True
 
-    for i in range(n+1):
-        for j in range(Sum+1):
+    for i in range(1,n+1):
+        for j in range(1,Sum+1):
             if(Arr[i-1]<=j):
                 k[i][j] = (k[i-1][j-Arr[i-1]] or k[i-1][j])
             else:

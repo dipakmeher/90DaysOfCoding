@@ -1,5 +1,5 @@
 #Subset Sum Function
-#Incomplete Code: Not giving correct output for Sum 30
+
 def subsetSum(Arr, n, Sum):
     
     if(n==0 and Sum!=0): #Sum!=0 is an important step here

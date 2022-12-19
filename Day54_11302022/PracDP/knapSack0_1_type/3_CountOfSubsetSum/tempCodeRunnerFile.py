@@ -1,0 +1,1 @@
+print([[k[i][j] for j in range(Sum+1)] for i in range(n+1)])
