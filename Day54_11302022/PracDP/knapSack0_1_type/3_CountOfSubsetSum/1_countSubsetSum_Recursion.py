@@ -16,4 +16,4 @@ Arr = [3, 34, 4, 12, 5, 2]
 n = len(Arr)
 Sum = 9
 
-print("Count of subset with sum", Sum ,"exsits or not: ", countSubsetSum(Arr, n, Sum))
+print("Count of subset with sum", Sum ,"exsits or not: ", countSubsetSum(Arr, n, Sum))  
