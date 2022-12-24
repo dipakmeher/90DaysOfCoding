@@ -1,5 +1,12 @@
-# Longest Common Subsequence LCS
+# Sequence Pattern Matching SPM
 # Main Function
+
+def SequencePM():
+    varLCS = LCS(s1,s2,n,m)
+    if varLCS == n:
+        return True
+    else:
+        return False
 
 def LCS(s1,s2,n,m):
     if(n==0 or m==0):
@@ -10,9 +17,9 @@ def LCS(s1,s2,n,m):
     else:
         return max(LCS(s1,s2,n-1, m),LCS(s1,s2,n, m-1))
 # Drivers Code
-s1 = "abcdgh"
+s1 = "abc"
 s2 = "abcdfr"
 n = len(s1)
 m = len(s2)
 
-print("The longest common subsequence for string s1 & s2 is,", LCS(s1,s2,n,m))
+print("The sequence pattern mathcing for string s1 & s2 is,", SequencePM())
