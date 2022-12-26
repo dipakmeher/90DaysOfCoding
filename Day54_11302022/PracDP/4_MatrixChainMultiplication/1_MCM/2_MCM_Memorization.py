@@ -19,4 +19,4 @@ def MCM(arr,i,j):
 arr = [1, 2, 3, 4, 3]
 n = len(arr)
 dp = [[-1 for j in range(n+1)] for i in range(n+1)]
-print("Min cost of MCM is,", MCM(arr,1, n-1))
+print("Min cost of MCM is,", MCM(arr,1, n-1)) 
