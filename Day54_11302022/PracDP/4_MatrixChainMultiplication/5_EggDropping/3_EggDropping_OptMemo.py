@@ -1,4 +1,4 @@
-# Egg Dropping Memorization
+# Egg Dropping Memorization Optimized
 import sys
 # function
 def EggDropping(arr,e,f):
@@ -12,7 +12,17 @@ def EggDropping(arr,e,f):
         return dp[e][f]
 
     for k in range(1, f+1): # If we take till f+1 then it will go till f
-        tempAns = 1+ max(EggDropping(arr, e-1, k-1), EggDropping(arr, e, f-k))
+        if(dp[e-1][k-1] != -1):
+            low =  dp[e-1][k-1]
+        else:
+            low = EggDropping(arr, e-1, k-1)
+        
+        if(dp[e][f-k] != -1):
+            high =  dp[e][f-k]
+        else:
+            high = EggDropping(arr, e, f-k)
+
+        tempAns = 1+ max(low, high)
         result = min(result, tempAns)
     dp[e][f] = result
     return result
