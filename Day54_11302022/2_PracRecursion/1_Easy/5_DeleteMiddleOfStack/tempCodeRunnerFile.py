@@ -1,0 +1,1 @@
+ # temp = stack[len(stack)-1]
