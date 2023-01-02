@@ -25,3 +25,7 @@ def RotatedArray(arr, n):
 arr = [15, 18, 2, 3, 6, 12, 13] # this is an sorted array
 n = len(arr)
 print("Arr rotated for ", RotatedArray(arr,n))
+
+# Following code can be done using above code with little variation
+# Find the element in rotated sorted array
+
