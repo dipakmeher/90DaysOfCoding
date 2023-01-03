@@ -21,7 +21,7 @@ def minimalSteps(s, n):
     
         # addition of character
         # takes one step
-        dp[i] = min(dp[i], dp[i - 1] + 1)
+        dp[i] = min(dp[i], dp[i - 1] + 1) 
     
         # appending takes 1 step, and
         # we directly reach index i*2+1
@@ -31,6 +31,7 @@ def minimalSteps(s, n):
             dp[i * 2 + 1] = min(dp[i] + 1,
                                 dp[i * 2 + 1])
     
+    print(dp)
     return dp[n - 1]
 
 res = minimalSteps("aabcc",5)
