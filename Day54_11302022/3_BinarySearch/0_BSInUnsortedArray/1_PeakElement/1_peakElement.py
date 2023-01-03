@@ -32,3 +32,6 @@ n = len(arr)
 res = []
 print("Position for the element in an array is",arr[peakElement(arr,n)])
 print(res)
+
+#Same Variations:
+#Biotonic array:find max element
