@@ -15,7 +15,6 @@ class Graph:
         BFSSequence = list()
         
         queue.append(v)
-        print("Sizeof: ", queue.__sizeof__)
         while(len(queue)!= 0):
             currentNode = queue.pop(0)
             BFSSequence.append(currentNode)
