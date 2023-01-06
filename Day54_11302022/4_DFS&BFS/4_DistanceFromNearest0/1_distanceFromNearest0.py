@@ -13,7 +13,7 @@ def dfs(grid, x, y, visited):
         return 10000
     if(grid[x][y] == "0"):
         return 0 
-    visited[x][y] = True
+    visited[x][y] = True 
     val = 1+ min(
         dfs(grid, x-1, y, visited),
         dfs(grid, x+1, y, visited),
