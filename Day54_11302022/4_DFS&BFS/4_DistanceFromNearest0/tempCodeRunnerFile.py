@@ -1,2 +1,1 @@
-grid[i][j] = countDistance
-                # countDistance = 0
+visited[x1][y1]== True
