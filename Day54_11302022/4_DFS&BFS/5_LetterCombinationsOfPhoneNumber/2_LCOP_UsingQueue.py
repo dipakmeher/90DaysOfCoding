@@ -6,27 +6,19 @@ from collections import deque
 
 
 def letterCombinationsUtil(number, n, table):
+    resList = []
+    q = deque()
+    q.append("")
 
-	list = []
-	q = deque()
-	q.append("")
+    while(len(q) != 0):
+        s = q.popleft()
 
-	while len(q) != 0:
-		s = q.pop()
-
-		# If complete word is generated
-		# push it in the list
-		if len(s) == n:
-			list.append(s)
-		else:
-
-			# Try all possible letters for current digit
-			# in number[]
-			for letter in table[number[len(s)]]:
-				q.append(s + letter)
-
-	# Return the generated list
-	return list
+        if(len(s)==n):
+            resList.append(s)
+        else:
+            for letter in table[number[len(s)]]:
+                q.append(s+letter)
+    return resList
 
 
 # Function that creates the mapping and
