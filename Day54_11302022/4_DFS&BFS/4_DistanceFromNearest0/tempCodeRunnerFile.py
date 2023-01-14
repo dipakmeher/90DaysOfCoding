@@ -1,1 +1,0 @@
-visited[x1][y1]== True
