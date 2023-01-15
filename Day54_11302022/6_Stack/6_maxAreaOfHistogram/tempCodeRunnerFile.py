@@ -1,6 +1,4 @@
-or i in range(n):
-#     width = abs(nearestSmallestElementToRight(arr, n) - nearestSmallestElementToLeft(arr, n)) - 1
-#     Area = arr[i] * width
-#     maxArea = max(maxArea, Area)
-
-# print(maxArea)
+if(len(stack) == 0):
+                res.append(-1)
+            else:
+                res.append(stack[-1][1])
