@@ -1,0 +1,1 @@
+print("Min Cost to connect ropes is ",sum(res))
