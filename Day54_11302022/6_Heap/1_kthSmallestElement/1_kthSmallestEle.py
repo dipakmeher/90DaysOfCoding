@@ -8,5 +8,5 @@ heapq.heapify(arr)
 
 print(heapq.nsmallest(k,arr))
 
-print(heapq.nsmallest(k,arr)[0])
+print(heapq.nsmallest(k,arr)[-1])
 
