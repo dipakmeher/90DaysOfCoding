@@ -18,13 +18,12 @@ def swapSort(arr, n):
             i+=1
         print(arr)
 
-    missing = 0
-    repeating = 0
+    missing = []
+    repeating = []
     for i in range(n):
         if(arr[i] != i+1):
-            missing  = i+1
-            repeating = arr[i]
-            break
+            missing.append(i+1)
+            repeating.append(arr[i])
     
     print("Missing elements: ", missing)
     print("Repeating elements: ", repeating)
@@ -32,6 +31,6 @@ def swapSort(arr, n):
     
 
 #Driver Code
-arr = [2,1,1,5,4]
+arr = [2,1,1,5,5]
 n = len(arr)
 swapSort(arr, n)
