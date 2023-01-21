@@ -1,6 +1,4 @@
 def countOccurencesOfAnagram(str,anagram, n,k):
-    
-
     hashMap = dict()
     for i in anagram:
         if i in hashMap:
