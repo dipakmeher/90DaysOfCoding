@@ -1,3 +1,5 @@
+#Pick Toys: Same as Longest substring of K unique characters
+
 #Functions
 def longestSubstringKUniqueChar(str,n,k):
     i = 0
@@ -27,6 +29,6 @@ def longestSubstringKUniqueChar(str,n,k):
 #Driver Code
 str = "aabacbebebe"
 n = len(str)
-uniqueCharacter = 3
+uniqueCharacter = 2
 
 longestSubstringKUniqueChar(str,n,uniqueCharacter)
