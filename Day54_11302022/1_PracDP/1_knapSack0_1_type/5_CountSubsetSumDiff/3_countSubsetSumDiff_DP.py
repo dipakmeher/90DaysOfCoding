@@ -31,6 +31,6 @@ diff = 1
 Range = sum(Arr)
 print("Sum: ", Range)
 Sum = (Range - diff)//2
-
+# Basically we are finding, how many subsets are possible to bring the Sum using these array elements
 k = [[0 for i in range(Sum+1)] for j in range(n+1)]
 print("Total count of subset sum with difference ",diff," is: ", countSubsetSumDiff(Arr, n, Sum))

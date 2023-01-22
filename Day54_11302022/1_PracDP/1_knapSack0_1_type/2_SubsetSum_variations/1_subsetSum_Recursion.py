@@ -1,8 +1,7 @@
 #Subset Sum Function
-
+# IBH, ip-op, decision tree 
 def subsetSum(Arr, n, Sum):
-    
-    if(n==0 and Sum!=0): #Sum!=0 is an important step here
+    if(n==0 and Sum!=0): #Sum!=0 is an important step here to cover the edge case sum like 60
         return False
     if(Sum == 0):
         return True
@@ -18,6 +17,6 @@ def subsetSum(Arr, n, Sum):
 # Sum = 30
 Arr = [3, 34, 4, 12, 5, 2]
 n = len(Arr)
-Sum = 9
+Sum = 60
 
 print("Subset with the sum", Sum ,"exsits or not: ", subsetSum(Arr, n, Sum))

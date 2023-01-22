@@ -15,7 +15,7 @@ def LCSubstring(s1,s2,n,m):
     return result
 # Drivers Code
 s1 = "abcdgh"
-s2 = "abcdfr"
+s2 = "abcdghr"
 n = len(s1)
 m = len(s2)
 

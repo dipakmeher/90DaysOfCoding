@@ -8,7 +8,7 @@ def knapSack0_1_DP(wt, val, W, n):
             if(n==0 or w==0):# corrected
                 K[i][w] = 0# corrected
             # CD
-            elif(wt[n-1] <= w): # corrected
+            if(wt[n-1] <= w): # corrected
                 K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]], K[i-1][w])# corrected
             else:
                 K[i][w] = K[i-1][w]# corrected

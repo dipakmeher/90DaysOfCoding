@@ -15,4 +15,4 @@ val = [60, 100, 120]
 wt = [10, 20, 30]
 n = len(wt)
 W = 50
-print("Max Profit(KS_Recursive) = ", knapSack0_1(wt, val, W, n))
+print("Max Profit(KS_Recursive) = ", knapSack0_1(wt, val, W, n)) 
