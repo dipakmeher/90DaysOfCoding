@@ -4,7 +4,7 @@ import sys
 # Function
 def coinChangeMinCoins(coins, n, Sum):
     for j in range(Sum+1): 
-        k[0][j] = sys.maxsize - 1
+        k[0][j] = sys.maxsize - 1 #coins[0][0]: we dont know to bring sum 0, we need how many coins... so infinity
     for i in range(1,n+1): # To Note: starts from 1
         k[i][0] = 0
     for j in range(1, Sum+1): # To Note: starts from 1
