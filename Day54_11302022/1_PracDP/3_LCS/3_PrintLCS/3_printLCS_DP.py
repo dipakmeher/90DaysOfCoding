@@ -22,7 +22,7 @@ def LCS(s1,s2,n,m):
         else:
             if(k[i-1][j]>k[i][j-1]):
                 i = i - 1
-            else:
+            else: 
                 j = j - 1
         
     return "".join(result[::-1])

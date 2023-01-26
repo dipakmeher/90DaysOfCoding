@@ -19,4 +19,4 @@ m = len(s2)
 
 k = [[0 for j in range(m+1)] for i in range(n+1)]
 minDeletion = n - LPS(s1,s2,n,m) # Imp steps in this code
-print("The longest pallindromic subsequence for string s1 & s2 is,", minDeletion)
+print("Min deletion to make the string s1 & s2 pallindrome is,", minDeletion)
