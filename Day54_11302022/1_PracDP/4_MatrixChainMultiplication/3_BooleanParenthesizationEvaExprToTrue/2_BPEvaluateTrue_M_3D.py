@@ -5,7 +5,7 @@ def BPEvaluateTrue(arr,i,j, isTrue):
     result  = 0
     if i>j:
         return False
-        
+
     if i==j:
         if(isTrue == 1):
             return arr[i] == "T" # Imp step to note
