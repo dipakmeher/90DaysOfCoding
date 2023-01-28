@@ -8,7 +8,7 @@ def EggDropping(arr,e,f):
     if e == 0:
         return f
     
-    for k in range(1, f+1): # If we take till j then it will go till j-1
+    for k in range(1, f+1): 
         tempAns = 1+ max(EggDropping(arr, e-1, k-1), EggDropping(arr, e, f-k))
         result = min(result, tempAns)
     return result
