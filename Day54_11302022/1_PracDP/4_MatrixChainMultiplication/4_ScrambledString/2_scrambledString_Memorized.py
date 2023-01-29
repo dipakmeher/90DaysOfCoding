@@ -14,7 +14,8 @@ def isScrambled(s1,s2):
 
     for k in range(1,n): 
         #for swapped
-        if(isScrambled(s1[:k], s2[n-k:]) and isScrambled(s1[k:],s2[:n-k])): # we dont have to equate but have to paas the two parameter into isScrambled function
+        if(isScrambled(s1[:k], s2[n-k:]) and isScrambled(s1[k:],s2[:n-k])):
+            # we dont have to equate but have to paas the two parameter into isScrambled function
             dpDict[temp] = True
             return dpDict[temp]
         # for not swapped

@@ -1,4 +1,4 @@
-# Boolean Parenthesization using Map
+# Boolean Parenthesization using 3D array
 import sys
 # function
 def BPEvaluateTrue(arr,i,j, isTrue):
