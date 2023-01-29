@@ -1,4 +1,4 @@
-# Boolean Parenthesization using Map
+# Boolean Parenthesization using Recursion
 import sys
 # function
 def BPEvaluateTrue(arr,i,j, isTrue):
