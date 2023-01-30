@@ -15,4 +15,4 @@ def TOH(source, destination, helper, n):
 n = 3
 count = 0
 TOH('s','d','h', n)
-print("Not of shifts required to move the disks from source to destination:", count)
+print("No of shifts required to move the disks from source to destination:", count)
