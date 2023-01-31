@@ -4,7 +4,7 @@ import sys
 def coinChangeMinCoins(coins, n, Sum):
     if n==0:
         #return minCoins = inf -1 
-        return sys.maxsize - 1
+        return sys.maxsize - 1 
     if n == 1:
         if(Sum%coins[n-1] == 0):
             return Sum/coins[n-1]
@@ -12,8 +12,7 @@ def coinChangeMinCoins(coins, n, Sum):
             return sys.maxsize - 1
 
     if(Sum == 0 and n !=0):
-        return 0
-
+        return 0 # To bring the coin zero, we would need zero coins.
     if(coins[n-1]<=Sum):
         return min(1+coinChangeMinCoins(coins,n, Sum-coins[n-1]),coinChangeMinCoins(coins, n-1, Sum))
     else:
