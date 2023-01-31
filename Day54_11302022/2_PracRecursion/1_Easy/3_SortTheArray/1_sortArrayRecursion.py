@@ -10,7 +10,7 @@ def insertTemp(arr, temp):
     arr.pop()
     insertTemp(arr, temp)
     arr.append(val)
-    return
+    
     #ID
 def SortArray(arr):
     #BC
@@ -24,7 +24,7 @@ def SortArray(arr):
     insertTemp(arr, temp)
 
 #Driver code
-arr = [1,2,5,3]
+arr = [5,4,3,1,2]
 print("Unsorted list, ", arr)
 SortArray(arr)
 print("Sorted list, ", arr)

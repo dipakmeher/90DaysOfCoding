@@ -22,7 +22,7 @@ def longestSubstringKUniqueChar(str,n,k):
                     hashMap.pop(str[i])
                 i+=1
             j+=1
-    print("The maximum toys John can pick up with 2 unique characters are",mx)
+    print("The longest substring with k unique characters is",mx)
 
 #Driver Code
 str = "aabacbebebe"

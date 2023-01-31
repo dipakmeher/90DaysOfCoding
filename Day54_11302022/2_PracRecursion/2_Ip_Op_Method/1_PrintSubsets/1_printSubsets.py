@@ -9,7 +9,7 @@ def printSubsets(ip, op):
         return
     
     #Equating list is like a pointing to the address of the list through new variable
-    # and would refer to the same original list. Any changes made into new one will relect into old one
+    # and would refer to the same original list. Any changes made into new one will refl ect into old one
     opReject = op # reject
     opInclude = op #include #imp step as we have to append the output with previous one
 

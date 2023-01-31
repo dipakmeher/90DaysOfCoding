@@ -32,7 +32,7 @@ def validParen(str):
         return True
     else:
         return False
-        
+         
 
 #Driver Code
 str = "{]}"

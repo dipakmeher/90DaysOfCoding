@@ -13,7 +13,7 @@ def MaxPathSum(root):
     right = MaxPathSum(root.right)
 
     #Induction
-    tempAns = max(root.value + max(left,right),root.value) #passing on root node; to eliminate the negative node values
+    tempAns = max(root.value + max(left,right),root.value)  #passing on root node; to eliminate the negative node values
     ans = max(tempAns, root.value + left + right) #Include the node
     result = max(result,ans)
     return tempAns 
