@@ -8,7 +8,7 @@ def josephusProblem(arr, k, index):
     index = (index+k)%len(arr)
 
     del arr[index]
-    josephusProblem(arr,k,index) # Remember k is not been decremented
+    josephusProblem(arr,k,index) # Remember k is not been decremented because the arr element is been reduced on the above line
      
     
 #Driver Code

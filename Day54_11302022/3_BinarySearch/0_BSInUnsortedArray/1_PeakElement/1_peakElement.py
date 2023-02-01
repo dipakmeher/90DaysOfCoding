@@ -2,7 +2,7 @@ def peakElement(arr, n):
     start = 0
     end = n-1
     while(start <= end):
-        mid = start + (end-start)//2 # the last term is added to avoid overflow in worst case 4+4/2 = -3/2 if max = 4
+        mid = start + (end-start)//2 # the last term is added to avoid overflow in worst case 4+4/2 = -3/2 if maxsize of int is 4
         #whereas 4 + (4-4)/2 = 4
         if(arr[mid]>arr[mid-1] and arr[mid]>arr[mid+1]):
             res.append(arr[mid])
