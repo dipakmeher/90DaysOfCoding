@@ -7,7 +7,7 @@ def firstOccurenceBS(arr, n, search):
         #whereas 4 + (4-4)/2 = 4
         if(arr[mid] == search):
             ans = mid # we don't know whether its a first occurence
-            end = mid - 1
+            end = mid - 1 # Thats the reason we don't return the value here
         elif(search < arr[mid]):
             end = mid - 1
         else:

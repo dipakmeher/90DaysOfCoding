@@ -9,7 +9,7 @@ def decBinarySearch(arr, n, search):
         if(arr[mid] == search):
             return mid
         if(search < arr[mid]):
-            start = mid + 1
+            start = mid + 1 # Only difference; reverses the start and end modification
         else:
             end = mid - 1
 #Driver code 
