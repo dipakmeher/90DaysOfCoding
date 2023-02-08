@@ -5,10 +5,10 @@ def FloorbinarySearch(arr, n, search):
     while(start <= end):
         mid = start + (end-start)//2 # the last term is added to avoid overflow in worst case 4+4/2 = -3/2 if max = 4
         #whereas 4 + (4-4)/2 = 4
-
         if(arr[mid] == search):
-            res = mid 
-        if(search < arr[mid]):
+            res = arr[mid] 
+            end = mid - 1
+        elif(search < arr[mid]):
             end = mid - 1
         elif(arr[mid] < search):
             res = arr[mid]

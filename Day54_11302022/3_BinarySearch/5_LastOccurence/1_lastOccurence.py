@@ -7,12 +7,12 @@ def lastOccurenceBS(arr, n, search):
         #whereas 4 + (4-4)/2 = 4
         if(arr[mid] == search):
             ans = mid # we dont know whether its a first occurence
-            start = mid + 1
+            start = mid + 1 # The only change from FirstOccurenceOfLetterCode
         if(search < arr[mid]):
             end = mid - 1
         else:
             start = mid + 1
-    return ans
+    return ans # we return the element at the end
 #Driver code 
 arr = [1,2,3,3,3,6,7] # this is an sorted array
 k=3

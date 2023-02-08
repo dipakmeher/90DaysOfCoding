@@ -39,4 +39,4 @@ lastOccurence = lastOccurenceBS(arr, n, k)
 print(firstOccurence)
 print(lastOccurence)
 
-print("Count of the repeated element",k,"is,", lastOccurence-firstOccurence+1)
+print("Count of the repeated element",k,"is,", lastOccurence-firstOccurence + 1)
