@@ -2,7 +2,7 @@
 #Asked: Find out the possible number of subsets from the string given on keypad
 #Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
-#For two strings we can do using recursion but for more than two strings DFS is difficult to implement
+#For two strings we can do using recursion but for more than two strings Recursion is difficult to implement
 #Following is for two string
 #Function
 
