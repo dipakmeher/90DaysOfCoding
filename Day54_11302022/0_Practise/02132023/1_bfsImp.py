@@ -1,34 +1,33 @@
-#DFS Implementation
 from collections import defaultdict
 
 class Graph:
-    #Constructor
     def __init__(self):
         self.graph = defaultdict(list)
 
     def addEdge(self, u, v):
         self.graph[u].append(v)
 
-    def BFS(self,v):
-        queue = list()
-        visited = set()
-        BFSSequence = list()
-        
+    def BFS(self, v):
+        queue = []
+        visited = []
+        BFSSequence = []
+
         queue.append(v)
-        while(len(queue)!= 0):
-            currentNode = queue.pop(0)
-            BFSSequence.append(currentNode)
-            if(currentNode not in visited):
-                visited.add(currentNode)
-                print("visited: ", visited)
+        while(queue):
+            curr = queue.pop(0) # Pop the first element
+            BFSSequence.append(curr)
+            if curr not in visited:
+                visited.append(curr)
+                print("Visited: ",visited)
             
-            for neighbour in self.graph[currentNode]: # g.graph stores the adjacency list for each node
+            for neighbour in self.graph[curr]:
                 if neighbour not in visited:
                     queue.append(neighbour)
         print(BFSSequence)
 
+
 #Driver Code
-if __name__=="__main__":
+if __name__ == "__main__":
     g = Graph()
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -43,7 +42,5 @@ if __name__=="__main__":
     print(g.graph)
 
     g.BFS(2)
-
-
 
 

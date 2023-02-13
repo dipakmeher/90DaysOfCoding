@@ -10,14 +10,14 @@ class Graph:
         self.graph[u].append(v)
 
     def DFS(self,v):
-        stack = list()
+        stack = list() # The first change among BFS and DFS Implementation
         visited = set()
         DFSSequence = list()
         
         stack.append(v)
 
         while(len(stack) != 0):
-            currentNode = stack.pop()
+            currentNode = stack.pop() # The second change in DFS and BFS implementation in python
             DFSSequence.append(currentNode)
             if(currentNode not in visited):
                 visited.add(currentNode)
