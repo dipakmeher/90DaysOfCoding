@@ -25,6 +25,7 @@ def courseSchedule(numCourses,prerequisites):
     prereq = {i:[] for i in range(numCourses)}
     for course,pre in prerequisites:
         prereq[course].append(pre)
+    print(prereq)
 
     #Now, strategy:
     # if 0->1 and 1->0 then we can't decide which course to take. We will return false
@@ -39,7 +40,7 @@ def courseSchedule(numCourses,prerequisites):
             return True
 
         cycle.add(course)
-        for pre in prereq[course]:
+        for pre in prereq[course]: # This step is to check the cycle basically
             if dfsNeighbor(pre) == False:
                 return
         cycle.remove(course)

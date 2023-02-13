@@ -2,22 +2,24 @@
 from collections import deque
 
 # Function to return a list that contains
-# all the generated letter combinations
+# all the generated letter combinations of length equals
+# the numbers given in the input list
 
 
 def letterCombinationsUtil(number, n, table):
-    resList = []
+    resList = []  
     q = deque()
     q.append("")
 
     while(len(q) != 0):
-        s = q.popleft()
+        s = q.popleft() # Popleft pops the first element in dequeue
 
         if(len(s)==n):
             resList.append(s)
         else:
             for letter in table[number[len(s)]]:
-                q.append(s+letter)
+                q.append(s+letter) #Making a combination of numbers
+                print(s+letter)
     return resList
 
 
@@ -41,7 +43,7 @@ def letterCombinations(number, n):
 
 
 # Driver code
-number = [2, 3,4,5]
+number = [2,3,4,5]
 n = len(number)
 
 # Function call
