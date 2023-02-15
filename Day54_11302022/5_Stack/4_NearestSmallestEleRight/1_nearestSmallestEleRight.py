@@ -10,17 +10,17 @@ def nearestSmallestElementToRight(arr, n):
             print(arr[i])
             while(len(stack) > 0 and stack[-1]>=arr[i]):
                 flag = 0
-                if(len(stack)==1 and stack[-1] == arr[i]):
-                    res.append(stack[-1])
-                    stack.pop()
-                    flag = 1
-                    break
+                # if(len(stack)==1 and stack[-1] == arr[i]):
+                #     res.append(stack[-1])
+                #     stack.pop()
+                #     flag = 1
+                #     break
                 stack.pop()
-            if(flag!=1):
-                if(len(stack) == 0):
-                    res.append(-1)
-                else:
-                    res.append(stack[-1])
+            # if(flag!=1):
+            if(len(stack) == 0):
+                res.append(-1)
+            else:
+                res.append(stack[-1])
         
         stack.append(arr[i])
 
