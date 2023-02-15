@@ -1,7 +1,7 @@
 #Next Greatest Element to left for every array
 #Function
 def nearestGretestElementToLeft(arr, n):
-    for i in range(0,n):
+    for i in range(0,n):# Only change in left and right code
         if(len(stack) == 0):
             res.append(-1)
         elif(len(stack)>0 and stack[-1]>arr[i]):
@@ -14,8 +14,6 @@ def nearestGretestElementToLeft(arr, n):
             else:
                 res.append(stack[-1])
         stack.append(arr[i])
-
-        
 
 #Driver Code
 stack = []

@@ -1,2 +1,4 @@
-elif(len(stack)>0 and stack[-1]==arr[i]):
-        #     res.append(stack[-1])
+if(len(stack) == 0):
+                res.append(-1)
+            else:
+                res.append(stack[-1])
