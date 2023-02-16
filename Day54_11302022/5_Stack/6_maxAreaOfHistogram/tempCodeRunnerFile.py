@@ -1,4 +1,1 @@
-if(len(stack) == 0):
-                res.append(-1)
-            else:
-                res.append(stack[-1][1])
+arr = [2,3,3,2]

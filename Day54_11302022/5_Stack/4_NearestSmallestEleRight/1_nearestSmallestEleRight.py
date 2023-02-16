@@ -29,7 +29,7 @@ def nearestSmallestElementToRight(arr, n):
 #Driver Code
 stack = []
 res = []
-arr = [2,3,3,1]
+arr = [2,3,3,2]
 n = len(arr)
 print("Nearest Smallest element to right: ")
 nearestSmallestElementToRight(arr, n)

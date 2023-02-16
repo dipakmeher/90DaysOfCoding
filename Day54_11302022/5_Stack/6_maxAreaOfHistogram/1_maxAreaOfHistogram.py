@@ -12,7 +12,7 @@ def nearestSmallestElementToRight(arr, n):
             while(len(stack) > 0 and stack[-1][0]>=arr[i]):
                 stack.pop()
             if(len(stack) == 0):
-                res.append(-1)
+                res.append(n) #Modification in NSR code
             else:
                 res.append(stack[-1][1])
                 
