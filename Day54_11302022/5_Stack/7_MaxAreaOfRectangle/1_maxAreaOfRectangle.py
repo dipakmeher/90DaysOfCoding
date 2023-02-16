@@ -70,5 +70,6 @@ for i in range(1,n):
             res[j] = res[j] + arr[i][j]
     tempArea = MaxAreaHistogram(res)
     maxArea = max(maxArea, tempArea)
+    
 
 print("Max Area of Reactangle: ", maxArea)
