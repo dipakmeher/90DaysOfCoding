@@ -1,4 +1,4 @@
-# Max area of rectangle
+# Max area of Histogram
 def nearestSmallestElementToRight(arr, n):
     stack = []
     res = []
@@ -68,7 +68,6 @@ for i in range(1,n):
             res[j] = 0
         else:
             res[j] = res[j] + arr[i][j]
-
     tempArea = MaxAreaHistogram(res)
     maxArea = max(maxArea, tempArea)
 
