@@ -2,7 +2,7 @@
 def push(a):
     stack.append(a)
     if(len(ss) == 0 or a<=ss[-1]):
-        ss.append(a)
+        ss.append(a)# Imp to store the repeated element to avoid issues while pop()
     return
 def pop():
     if(len(stack) == 0):
@@ -27,6 +27,6 @@ def minEleExtraSpace(arr, n):
 arr = [18,19,25,15,15]
 stack = []
 n = len(stack)
-ss = []
+ss = [] #Extra Space; used to store the min element
 
 minEleExtraSpace(arr, n)

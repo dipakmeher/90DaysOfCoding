@@ -1,7 +1,9 @@
+# Sort the kSortedArray or Nearly sorted array
+# k tells that the element is present within k range left or right
+
 import heapq
 #Function
 def sortKSortedArray(arr,n,k):
-
     heap = arr[:k+1]
     heapq.heapify(heap)
 

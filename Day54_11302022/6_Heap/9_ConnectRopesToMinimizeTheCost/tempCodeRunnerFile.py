@@ -1,1 +1,1 @@
-print("Min Cost to connect ropes is ",sum(res))
+if(len(heap) == 1): break

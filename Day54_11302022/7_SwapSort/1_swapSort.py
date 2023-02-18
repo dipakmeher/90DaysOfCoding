@@ -1,4 +1,6 @@
-
+# This technique can be used to solve the problem on non-static array in O(1) space
+# 1 ro N array: Find the missing elements
+# This problem can be done in 2 more ways: Usign HashMap and   
 
 #Function
 def swap(arr, a, b):
@@ -9,8 +11,10 @@ def swap(arr, a, b):
 def swapSort(arr, n):
     i = 0
     while(i<n):
+        # We're basically checking whether the element is at correct place. If not then 
+        # we're placing the ith element at its correct place.
         if(arr[i] != arr[arr[i]-1]):
-            swap(arr, i, arr[i]-1)
+            swap(arr, i, arr[i]-1) 
             # arr[i], arr[arr[i]-1] = arr[arr[i]-1], arr[i]
             # print("1", arr[i])
             # print("2", arr[arr[i]-1])

@@ -14,8 +14,7 @@ def nearestSmallestElementToRight(arr, n):
             if(len(stack) == 0):
                 res.append(n) #Modification in NSR code
             else:
-                res.append(stack[-1][1])
-                
+                res.append(stack[-1][1]) 
         stack.append([arr[i],i])
     res.reverse()
     return res
