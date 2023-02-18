@@ -10,7 +10,7 @@ def kClosestNumbers(arr, n, k, x):
             print(heap)
         print()
     while heap:
-        res.append(heap[0][1])
+        res.append(heap[0][1]) # Heapq returns the smallest element but does not store the values in ascending order
         heapq.heappop(heap)
     print("k closest numbers in array is,",res)
 
