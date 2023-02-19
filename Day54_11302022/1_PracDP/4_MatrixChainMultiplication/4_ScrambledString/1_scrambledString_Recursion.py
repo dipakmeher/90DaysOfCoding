@@ -21,7 +21,9 @@ def isScrambled(s1,s2):
     return False
 
 #Driver code
-s1 = "great"
-s2 = "etagr"
+# s1 = "great"
+# s2 = "etagr"
+s1 = "anagram"
+s2 = "nagaram"
 n = len(s1)
 print("Are s1 and s2 scrambled strings?,", isScrambled(s1,s2))

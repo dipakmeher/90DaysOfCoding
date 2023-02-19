@@ -1,4 +1,4 @@
-# FInd the maximum sum subarray of window size k
+# Find the maximum sum subarray of window size k
 #Function
 def maxSumKSizeWindow(arr,n,k):
     i = 0
@@ -8,7 +8,7 @@ def maxSumKSizeWindow(arr,n,k):
     while(j<n):
         Sum = Sum + arr[j]
         print(Sum)
-        if(j-i+1 < k):
+        if(j-i+1 < k): # j-i+1 is a window size
             j+=1
         elif(j-i+1 == k):
             mx = max(mx,Sum)
