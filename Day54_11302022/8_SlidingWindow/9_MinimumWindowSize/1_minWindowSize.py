@@ -23,11 +23,13 @@ def MinWindowSize(str,substr, n,k):
         elif(count==0):
             mn = min(mn,j-i+1)
             print("mn = ", mn)
+            # i<=j because we have to start looking for the min substring ahead
             while(i<=j):
                 if str[i] in hashMap:
                     hashMap[str[i]] +=1
-                    if(hashMap[str[i]] >= 1):
+                    if(hashMap[str[i]] >= 1): # it must be >=1 which handles the repeating character condition as well
                         count+=1 
+                        print("Count: ",count)
                 i+=1
             # print(hashMap)
             i+=1
@@ -36,7 +38,7 @@ def MinWindowSize(str,substr, n,k):
     
 
 #Driver Code
-str = "foxyrxyofyzrofor"
+str = "fooxyrxyofyzrofoor"
 key = "for"
 n = len(str)
 k = len(key)
