@@ -30,8 +30,8 @@ def subsetSum(Arr, n, Sum):
 
 #Drivers Code
 
-# Arr = [1,2,7]
-Arr = [3, 1, 4, 2, 2, 1]
+Arr = [1,2,7]
+# Arr = [3, 1, 4, 2, 2, 1]
 n = len(Arr)
 Sum = 0
 for i in range(n):
