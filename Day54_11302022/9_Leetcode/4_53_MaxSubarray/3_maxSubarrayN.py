@@ -5,7 +5,7 @@
 # TC: N
 
 def maxSubarray(nums,n):
-    maxSum = -1000
+    maxSum = -10000
     currSum = 0
 
     for i in range(n):
