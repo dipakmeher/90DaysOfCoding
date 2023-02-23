@@ -9,7 +9,7 @@ def coinChangeMinCoins(coins, n, Sum):
         k[i][0] = 0
     for j in range(1, Sum+1): # To Note: starts from 1
         if(j%coins[0] == 0):
-            k[1][j] = Sum/coins[0] # To Note: We have to put divide here and not Modulus :(
+            k[1][j] = Sum/coins[0] # To Note: We have to put divide here and not Modulus :(. Use Coins[0] because we are filling 1st row for coin[0]
         else:
             k[1][j] = sys.maxsize - 1
 

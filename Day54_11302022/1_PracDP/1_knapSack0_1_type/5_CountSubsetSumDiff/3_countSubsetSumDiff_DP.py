@@ -30,6 +30,8 @@ n = len(Arr)
 diff = 1
 Range = sum(Arr)
 print("Sum: ", Range)
+# s2-s1 = diff
+# R-2s1 = diff>> s1 = R-diff //2 : If one sum exist then other part of sum does exist 
 Sum = (Range - diff)//2
 # Basically we are finding, how many subsets are possible to bring the Sum using these array elements
 k = [[0 for i in range(Sum+1)] for j in range(n+1)]
