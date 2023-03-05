@@ -21,6 +21,8 @@ Push the Branch to Git: git push --set-upstream origin Day15
 Change to Main: git checkout main   
 Merge branches: git merge Branch_Name
 List the last 5 commits: git log --oneline
+
+Change origin: git remote add origin <repo_link>
 ====
 Push to Main Branch: git push -u origin main   
 

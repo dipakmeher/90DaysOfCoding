@@ -12,7 +12,7 @@ def coinChagneMaxWays(Arr, n, Sum):
     for i in range(1,n+1): #Has to be start with 1,n+1
         for j in range(1,Sum+1):
             if(Arr[i-1]<=j):
-                k[i][j] = k[i][j-Arr[i-1]] + k[i-1][j] #i: unbounded knapsack
+                k[i][j] = k[i][j-Arr[i-1]] + k[i-1][j] #i: unbounded knapsack + subset sum
             else:
                 k[i][j] = k[i-1][j]
     return k[n][Sum]
