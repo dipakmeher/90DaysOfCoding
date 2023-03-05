@@ -20,6 +20,7 @@ def subsetSum(Arr, n, Sum):
             else:
                  k[i][j] = k[i-1][j]
     
+    # min(s2-s1)>> R-s1-s1>> R-2s1
     result = sys.maxsize  
     for j in range(Sum//2, -1, -1):
         if k[n][j] == True:
