@@ -38,7 +38,7 @@ def nearestSmallestElementToLeft(arr, n):
     return res
     
 #Driver Code
-# arr = [6,2,5,4,5,1,6]
+# arr = [6,2,5,4,5,1,6]s
 arr = [2,3,3,2]
 n = len(arr)
 nsr = nearestSmallestElementToRight(arr, n)
