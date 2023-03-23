@@ -22,7 +22,8 @@ def RotatedArray(arr, n):
         #     start = mid +1
     
 #Driver code 
-arr = [15, 18, 2, 3, 6, 12, 13] # this is an sorted array
+# arr = [15, 18, 2, 3, 6, 12, 13] # this is an sorted array
+arr = [4,5,6,7,0,1,2]
 n = len(arr) 
 print("Arr rotated for ", RotatedArray(arr,n))
 
