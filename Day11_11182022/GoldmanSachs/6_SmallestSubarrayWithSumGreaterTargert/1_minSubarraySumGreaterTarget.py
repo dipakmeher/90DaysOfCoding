@@ -3,7 +3,7 @@ def largestSubarrayofSumK(arr,n,Sum):
     i = 0
     j = 0
     subsum = 0
-    mx = 0
+    mx = n+1
     count = 0
     while(j<n):
         subsum = subsum + arr[j]
@@ -12,12 +12,13 @@ def largestSubarrayofSumK(arr,n,Sum):
         
         if(subsum < Sum):
             j+=1
-        elif(subsum == Sum):
-            mx = max(mx, j-i+1)
-            count+=1
-            j+=1
+        # elif(subsum == Sum):
+        #     mx = max(mx, j-i+1)
+        #     count+=1
+        #     j+=1
         elif(subsum > Sum):
-            while(subsum > Sum):
+            mx = min(mx, j-i+1)
+            while(subsum >=Sum):
                 subsum = subsum - arr[i]
                 print("arr[i]",arr[i])
                 print("subsum after delete: ",subsum)
@@ -25,11 +26,11 @@ def largestSubarrayofSumK(arr,n,Sum):
             j+=1
         print()
                 
-    print("largest subarray of sum k is of size",mx)
-    print("count",count)
+    print("Smallest subarray of sum k is of size",mx)
 
 #Driver Code
-arr = [4,1,1,2,1,1,5]
+# arr = [4,1,1,2,1,1,5]
+arr = [1,2,3,6,5,7]
 n = len(arr)
-Sum = 5
+Sum = 11
 largestSubarrayofSumK(arr,n,Sum)
