@@ -1,1 +1,0 @@
-1+LCSubstring(s1,s2,n-1, m-1)
