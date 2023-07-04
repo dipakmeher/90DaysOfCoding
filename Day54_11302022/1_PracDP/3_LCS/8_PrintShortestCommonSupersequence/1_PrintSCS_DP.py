@@ -20,16 +20,16 @@ def LCS(s1,s2,n,m):
             j = j-1
         else:
             if(k[i-1][j]>k[i][j-1]):
-                result.append(s1[i-1])
+                result.append(s1[i-1]) # Added step as compare to PrintLCS
                 i = i - 1
             else:
-                result.append(s2[j-1]  )
+                result.append(s2[j-1]  )# Added step as compare to PrintLCS
                 j = j - 1
-    while(i>0):
-        result.append(s1[i-1])
+    while(i>0):# Added step as compare to PrintLCS- all 4 below lines
+        result.append(s1[i-1])# Added step as compare to PrintLCS
         i = i - 1
     while(j>0):
-        result.append(s2[j-1])
+        result.append(s2[j-1])# Added step as compare to PrintLCS
         j = j - 1
 
     return "".join(result[::-1])

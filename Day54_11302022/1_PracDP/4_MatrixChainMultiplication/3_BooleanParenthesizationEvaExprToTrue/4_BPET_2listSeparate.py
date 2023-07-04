@@ -59,7 +59,7 @@ while i < x and j < y:
 while i < x:
     arr += symbols[i]
     i+=1
-while j < y:
+while j < y: # In this case, y would be less than x only
     arr += operator[j]
     j+=1
     
