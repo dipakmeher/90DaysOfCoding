@@ -17,5 +17,5 @@ s2 = "abcdfr"
 n = len(s1)
 m = len(s2)
 result = []
-print("The longest common subsequence for string s1 & s2 is, ", LCS(s1,s2,n,m, result))
+print("Print longest common subsequence for string s1 & s2 is, ", LCS(s1,s2,n,m, result))
 print("Result: ","".join(result))

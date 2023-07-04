@@ -8,7 +8,8 @@ def LCSubstring(s1,s2,n,m, res):
     
     if(s1[n-1] == s2[m-1]):
         return LCSubstring(s1,s2,n-1, m-1, res+1)
-    
+    # Max of res,__ is needed because the Longest common substring can be in middle as well
+    # and to calculate that we are only choosing max of the calcuating substring.
     return max(res, max(LCSubstring(s1,s2,n-1, m, 0),LCSubstring(s1,s2,n, m-1, 0)))
 
 # Drivers Code
