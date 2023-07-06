@@ -27,7 +27,7 @@ def MaxPathSum(root):
         result = max(result,root.value + left + right)
         print("result: ",result)
         print()
-        return tempAns 
+        return tempAns # We are returning different value as compare to diameter of tree
     
     if(root.left is None):
         tempAns = right + root.value
