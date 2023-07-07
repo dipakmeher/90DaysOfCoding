@@ -1,15 +1,15 @@
 #Delete middle element of a stack
 from collections import deque
 #function
-def DeleteMiddleElement(stack,deleteEle):
+def DeleteMiddleElement(stack,delindex):
     #BC
-    if(deleteEle == 1):
+    if(delindex == 1):
         stack.pop()
         return
     #HP
     # temp = stack[len(stack)-1]
     temp = stack.pop()
-    DeleteMiddleElement(stack,deleteEle-1)
+    DeleteMiddleElement(stack,delindex-1)
     #ID
     stack.append(temp)
     return stack
@@ -17,7 +17,7 @@ def DeleteMiddleElement(stack,deleteEle):
 #driver code
 stack = deque(['1','2','5','3','4'])
 print("Stack before deletion: ", stack)
-deleteEle = len(stack)//2 + 1
-print(deleteEle)
-DeleteMiddleElement(stack,deleteEle)
+delindex = len(stack)//2 + 1 #Index of element
+print(stack[delindex])
+DeleteMiddleElement(stack,delindex)
 print("Stack after deletion: ", stack)
