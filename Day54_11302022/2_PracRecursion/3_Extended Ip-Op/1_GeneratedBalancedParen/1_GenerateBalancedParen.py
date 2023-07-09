@@ -1,5 +1,4 @@
 # generate the paranthesis 
-# Revision incomplete
 #Function
 def generateBalancedParen(open,closed, op):
     global res
