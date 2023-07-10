@@ -4,7 +4,7 @@ def RotatedArray(arr, n):
     while(start <= end):
         mid = start + (end-start)//2 # the last term is added to avoid overflow in worst case 4+4/2 = -3/2 if max = 4
         #whereas 4 + (4-4)/2 = 4
-        prev = (mid + n - 1)%n # if mid = 0  then mid-1 would be negative
+        prev = (mid + n - 1)%n # if mid = 0  then mid-1 would be negative - invalid
         next = (mid + 1)%n 
         print("Mid: ",mid)
         print("start: ",start)
@@ -14,7 +14,7 @@ def RotatedArray(arr, n):
             return mid
         if(arr[start] <= arr[mid]): # that means the first half array is sorted
             start = mid + 1
-        elif(arr[mid] <= arr[end]):
+        elif(arr[mid] <= arr[end]): # that means the second half array is sorted
             end = mid-1
         # elif(arr[mid] < arr[start]):
         #     end = mid - 1
