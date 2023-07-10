@@ -14,6 +14,6 @@ def josephusProblem(arr, k, index):
 #Driver Code
 n = 7 # Total number of people
 k = 3 # k represents the number of jumps to take from index
-index = 0
+index = 0 # start index
 arr = [i+1 for i in range(n)]
 josephusProblem(arr, k-1, index)

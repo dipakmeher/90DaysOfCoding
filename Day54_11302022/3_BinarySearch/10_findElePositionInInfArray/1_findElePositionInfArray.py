@@ -8,7 +8,7 @@ def binarySearchInInf(arr, n, search, start, end):
             end = mid - 1
         else:
             start = mid + 1
-#Driver code 
+#Driver code  
 arr = [1,2,3,4,5,6,7,8,9] # this is an infinite sorted array
 k=4
 n = len(arr)
