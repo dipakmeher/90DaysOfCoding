@@ -10,12 +10,13 @@ def binarySearchInInf(arr, n, search, start, end):
             start = mid + 1
 #Driver code  
 arr = [1,2,3,4,5,6,7,8,9] # this is an infinite sorted array
-k=4
+k=4 # Element to search
 n = len(arr)
 
+# Code to find start and end for infinite array
 low = 0
 high = 1
-while(k>high):
+while(k>high): # this means the key is outside of start and end
     low = high
     high = high * 2
 
