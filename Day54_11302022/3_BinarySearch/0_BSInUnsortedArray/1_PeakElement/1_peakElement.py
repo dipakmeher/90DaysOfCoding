@@ -11,14 +11,14 @@ def peakElement(arr, n):
             end = mid - 1
         elif(arr[mid] < arr[mid+1]):
             start = mid + 1
-        elif(mid == 0):
+        elif(mid == 0): #If the condition executes till here then there are no other elements eligible
             if(arr[0]>arr[1]):
                 res.append(arr[0])
                 return 0
             else:
                 res.append(arr[1])
                 return 1
-        if(mid == n-1):
+        if(mid == n-1): #If the condition executes till here then there are no other elements eligible
             if(arr[n-1]>arr[n-2]):
                 res.append(arr[n-1])
                 return n-1
