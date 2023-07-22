@@ -1,4 +1,4 @@
-#Next Greatest Element for every array
+#Next Greatest Element for every element in array 
 #Function
 def nearestGretestElementToRight(arr, n):
     for i in range(n-1,-1,-1):
