@@ -2,7 +2,7 @@
 #Function
 #Update 02152023##############
 # We have made use of stack here because we have to traverse through array 
-# in from current element to start order to check the condition and 
+# from current element to start order to check the condition and 
 # that too for each element
 # So it would be easier to use stack that gives us the previous element 
 # using stack.top()
