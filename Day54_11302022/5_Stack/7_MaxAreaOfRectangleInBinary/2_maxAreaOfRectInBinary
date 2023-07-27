@@ -1,5 +1,5 @@
 # Max area of Histogram
-#Revised
+#Revised Revised
 def nearestSmallestElementToRight(arr, n):
     stack = []
     res = []
