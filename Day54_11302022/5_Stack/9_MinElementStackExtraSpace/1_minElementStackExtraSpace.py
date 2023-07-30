@@ -2,7 +2,7 @@
 def push(a):
     stack.append(a)
     if(len(ss) == 0 or a<=ss[-1]):
-        ss.append(a)# Imp to store the repeated element to avoid issues while pop()
+        ss.append(a)# Imp to store the repeated element to avoid issues while pop() and for that = sign is used
     return
 def pop():
     if(len(stack) == 0):
