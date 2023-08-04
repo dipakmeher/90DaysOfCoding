@@ -5,7 +5,7 @@ def kSmallestElement(arr, n, k):
     heap = []
     for i in range(n):
         # Negative sign would store the element in decreasing order
-        heapq.heappush(heap,-arr[i])
+        heapq.heappush(heap,-arr[i]) # Min heap
         if(len(heap) > k):
             #heappop would pop the first element
             heapq.heappop(heap)
