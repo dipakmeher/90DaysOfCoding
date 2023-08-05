@@ -10,7 +10,7 @@ def kthSmallestElement(arr, n, k):
     return -heap[0]
 
 #Driver Code
-arr = [6, 7, 9, 4, 3, 5, 8, 10, 1]
+arr = [1,3,12,5,15,11]
 n = len(arr)
 k1 = 3
 k2 = 6
