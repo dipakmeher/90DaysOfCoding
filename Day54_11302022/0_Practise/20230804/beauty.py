@@ -1,3 +1,4 @@
+#need to solve
 def beautyOfArray(arr, c, n):
     if(len(arr) == 0):
         return c 
