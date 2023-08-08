@@ -1,4 +1,4 @@
-#need to solve
+#need to solve tomorrow
 def beautyOfArray(arr, c, n):
     if(len(arr) == 0 or n == 0):
         return c 
