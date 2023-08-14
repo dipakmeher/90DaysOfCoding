@@ -1,4 +1,4 @@
-# Wrong answer with the commented inputs
+# Wrong answer with the commented inputs, lets see
 def beautyOfArray(arr, c, n):
     if(n == 0):
         return 0
