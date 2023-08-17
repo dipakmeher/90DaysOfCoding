@@ -1,7 +1,7 @@
 """
-OpenNSA Pica8 OVS backend.
+OpenNSA Ubuntu Backend
 
-Authors:  iCAIR. Contributions by SURFnet, NORDUnet
+Authors: 
 
 """
 
@@ -13,48 +13,76 @@ from twisted.internet import defer
 from opennsa import constants as cnt, config
 from opennsa.backends.common import ssh, genericbackend
 
-LOG_SYSTEM = 'opennsa.pica8ovs'
-
+LOG_SYSTEM = 'opennsa.ubuntubackend'
 # parameterized commands
 COMMAND_ECHO            = 'echo'
 
-# Substitute switch IP and TCP port
-COMMAND_SET_INTERFACE_VLAN      = '/ovs/bin/ovs-vsctl --db=tcp:%s:6640 add port %s trunk %i'
-COMMAND_DELETE_INTERFACE_VLAN   = '/ovs/bin/ovs-vsctl --db=tcp:%s:6640 remove port %s trunk %i'
+import random
+import string
 
-COMMAND_ADD_FLOW                = '/ovs/bin/ovs-ofctl add-flow br0 in_port=%s,dl_vlan=%i,actions=output:%s'
-COMMAND_ADD_FLOW_SWAP           = '/ovs/bin/ovs-ofctl add-flow br0 in_port=%s,dl_vlan=%i,action=set_field=%i-\\>vlan_vid,output:%s'
-COMMAND_DELETE_FLOW             = '/ovs/bin/ovs-ofctl del-flows br0 in_port=%s,dl_vlan=%i'
+created_bridges = []
+
+def generate_bridge_name():
+    bridge_name = f"bridge{''.join(random.choices(string.ascii_lowercase, k=6))}"
+    while bridge_name in created_bridges:
+        bridge_name = f"bridge{''.join(random.choices(string.ascii_lowercase, k=6))}"
+    created_bridges.append(bridge_name)
+    return bridge_name
+
+configurations = {}  # Dictionary to store configurations
 
 
-def createConfigureCommands(db_ip, source_nrm_port, dest_nrm_port, source_vlan, dest_vlan):
+def createConfigureCommands(segment_id, source_nrm_port, dest_nrm_port, source_vlan, dest_vlan):
+    bridge_name = generate_bridge_name()
 
-    cmd_s_intf  = COMMAND_SET_INTERFACE_VLAN % (db_ip, source_nrm_port, source_vlan)
-    cmd_d_intf  = COMMAND_SET_INTERFACE_VLAN % (db_ip, dest_nrm_port, dest_vlan)
-    s_flow = str(int(source_nrm_port.split('/')[2]) + 128)
-    d_flow = str(int(dest_nrm_port.split('/')[2]) + 128)
-    if source_vlan == dest_vlan:
-        cmd_s_flow  = COMMAND_ADD_FLOW              % ( s_flow, source_vlan, d_flow )
-        cmd_d_flow  = COMMAND_ADD_FLOW              % ( d_flow, source_vlan, s_flow )
+    commands = []
+
+    # Create the bridge
+    bridge_command = f"sudo ip link add name {bridge_name} type bridge"
+    commands.append(bridge_command)
+
+    # Add VLAN to source port and attach to the bridge
+    source_vlan_command = f"sudo ip link add link {source_nrm_port} name {source_nrm_port}.{source_vlan} type vlan id {source_vlan}"
+    source_vlan_up_command = f"sudo ip link set {source_nrm_port}.{source_vlan} up"
+    source_vlan_attach_command = f"sudo ip link set {source_nrm_port}.{source_vlan} master {bridge_name}"
+    commands.extend([source_vlan_command, source_vlan_up_command, source_vlan_attach_command])
+
+    # Add VLAN to destination port and attach to the bridge
+    dest_vlan_command = f"sudo ip link add link {dest_nrm_port} name {dest_nrm_port}.{dest_vlan} type vlan id {dest_vlan}"
+    dest_vlan_up_command = f"sudo ip link set {dest_nrm_port}.{dest_vlan} up"
+    dest_vlan_attach_command = f"sudo ip link set {dest_nrm_port}.{dest_vlan} master {bridge_name}"
+    commands.extend([dest_vlan_command, dest_vlan_up_command, dest_vlan_attach_command])
+
+    # Store the configuration in the dictionary
+    configurations[segment_id] = (source_nrm_port, source_vlan, dest_nrm_port, dest_vlan, bridge_name)
+
+    return commands
+
+
+def createDeleteCommands(unique_id):
+    if unique_id in configurations:
+        source_nrm_port, source_vlan, dest_nrm_port, dest_vlan, bridge_name = configurations[unique_id]
+
+        commands = []
+
+        # Delete the VLAN interfaces and detach from the bridge
+        source_vlan_detach_command = f"sudo ip link set {source_nrm_port}.{source_vlan} nomaster"
+        source_vlan_delete_command = f"sudo ip link delete {source_nrm_port}.{source_vlan}"
+        dest_vlan_detach_command = f"sudo ip link set {dest_nrm_port}.{dest_vlan} nomaster"
+        dest_vlan_delete_command = f"sudo ip link delete {dest_nrm_port}.{dest_vlan}"
+        commands.extend([source_vlan_detach_command, source_vlan_delete_command, dest_vlan_detach_command, dest_vlan_delete_command])
+
+        # Delete the bridge
+        bridge_delete_command = f"sudo ip link delete {bridge_name}"
+        commands.append(bridge_delete_command)
+
+        # Remove the configuration from the dictionary and created_bridges list
+        del configurations[unique_id]
+        created_bridges.remove(bridge_name)
+
+        return commands
     else:
-        cmd_s_flow  = COMMAND_ADD_FLOW_SWAP         % ( s_flow, source_vlan, dest_vlan, d_flow )
-        cmd_d_flow  = COMMAND_ADD_FLOW_SWAP         % ( d_flow, dest_vlan, source_vlan, s_flow )
-
-    commands = [ cmd_s_intf, cmd_d_intf, cmd_s_flow, cmd_d_flow ]
-    return commands
-
-
-def createDeleteCommands(db_ip, source_nrm_port, dest_nrm_port, source_vlan, dest_vlan):
-
-    cmd_no_s_intf = COMMAND_DELETE_INTERFACE_VLAN % (db_ip, source_nrm_port, source_vlan )
-    cmd_no_d_intf = COMMAND_DELETE_INTERFACE_VLAN % (db_ip, dest_nrm_port, dest_vlan )
-    s_flow = str(int(source_nrm_port.split('/')[2]) + 128)
-    d_flow = str(int(dest_nrm_port.split('/')[2]) + 128)
-    cmd_no_s_flow = COMMAND_DELETE_FLOW         % ( s_flow, source_vlan )
-    cmd_no_d_flow = COMMAND_DELETE_FLOW         % ( d_flow, dest_vlan )
-
-    commands = [ cmd_no_s_flow, cmd_no_d_flow, cmd_no_s_intf, cmd_no_d_intf ]
-    return commands
+        return ["Configuration with given ID not found."]
 
 
 class SSHChannel(ssh.SSHChannel):
@@ -134,7 +162,7 @@ class SSHChannel(ssh.SSHChannel):
                 d.callback(self)
 
 
-class Pica8OVSCommandSender:
+class UbuntuCommandSender:
 
 
     def __init__(self, host, port, ssh_host_fingerprint, user, ssh_public_key_path, ssh_private_key_path, db_ip):
@@ -167,13 +195,15 @@ class Pica8OVSCommandSender:
 
 
     def setupLink(self, source_target, dest_target):
+        seg_id = len(configurations) + 1  # Unique ID counter
 
-        commands = createConfigureCommands(self.db_ip, source_target.port, dest_target.port, source_target.vlan, dest_target.vlan)
+        commands = createConfigureCommands(seg_id, source_target.port, dest_target.port, source_target.vlan, dest_target.vlan)
         return self._sendCommands(commands)
 
 
     def teardownLink(self, source_target, dest_target):
 
+        # commands = createDeleteCommands(self.db_ip, source_target.port, dest_target.port, source_target.vlan, dest_target.vlan)
         commands = createDeleteCommands(self.db_ip, source_target.port, dest_target.port, source_target.vlan, dest_target.vlan)
         return self._sendCommands(commands)
 
@@ -181,7 +211,7 @@ class Pica8OVSCommandSender:
 # --------
 
 
-class UbuntuOVSTarget(object):
+class UbuntuTarget(object):
 
     def __init__(self, port, vlan=None):
         self.port = port
@@ -189,18 +219,18 @@ class UbuntuOVSTarget(object):
 
     def __str__(self):
         if self.vlan:
-            return '<UbuntuOVSTarget %s#%i>' % (self.port, self.vlan)
+            return '<UbuntuTarget %s#%i>' % (self.port, self.vlan)
         else:
-            return '<UbuntuOVSTarget %s>' % self.port
+            return '<UbuntuTarget %s>' % self.port
 
 
 
-class UbuntuOVSConnectionManager:
+class UbuntuConnectionManager:
 
     def __init__(self, port_map, host, port, host_fingerprint, user, ssh_public_key, ssh_private_key, db_ip):
 
         self.port_map = port_map
-        self.command_sender = UbuntuOVSCommandSender(host, port, host_fingerprint, user, ssh_public_key, ssh_private_key, db_ip)
+        self.command_sender = UbuntuCommandSender(host, port, host_fingerprint, user, ssh_public_key, ssh_private_key, db_ip)
 
 
     def getResource(self, port, label):
@@ -215,11 +245,11 @@ class UbuntuOVSConnectionManager:
         vlan = int(label.labelValue())
         assert 1 <= vlan <= 4095, 'Invalid label value for vlan: %s' % label.labelValue()
 
-        return Pica8OVSTarget(self.port_map[port], vlan)
+        return UbuntuTarget(self.port_map[port], vlan)
 
 
     def createConnectionId(self, source_target, dest_target):
-        return 'UbuntuOVS-' + str(random.randint(100000,999999))
+        return 'UbuntuBackend-' + str(random.randint(100000,999999))
 
 
     def canSwapLabel(self, label_type):
@@ -247,13 +277,14 @@ class UbuntuOVSConnectionManager:
 
 
 
-def UbuntuOVSBackend(network_name, nrm_ports, parent_requester, cfg):
+def UbuntuBackend(network_name, nrm_ports, parent_requester, cfg):
 
-    name = 'UbuntuOVSBackend %s' % network_name
+    name = 'UbuntuBackend %s' % network_name
     nrm_map  = dict( [ (p.name, p) for p in nrm_ports ] ) # for the generic backend
     port_map = dict( [ (p.name, p.interface) for p in nrm_ports ] ) # for the nrm backend
+
     # ================================================================
-    # Wanting to see how the mapping looks like
+    # Need to change the below items
     # ================================================================
 
     # extract config items
@@ -265,11 +296,6 @@ def UbuntuOVSBackend(network_name, nrm_ports, parent_requester, cfg):
     ssh_private_key  = cfg[config.PICA8OVS_SSH_PRIVATE_KEY]
     db_ip            = cfg[config.PICA8OVS_DB_IP]
 
-    cm = Pica8OVSConnectionManager(port_map, host, port, host_fingerprint, user, ssh_public_key, ssh_private_key, db_ip)
-    # ================================================================
-    # Wanting to print cm
-    # ================================================================ 
+    cm = UbuntuConnectionManager(port_map, host, port, host_fingerprint, user, ssh_public_key, ssh_private_key, db_ip)
     return genericbackend.GenericBackend(network_name, nrm_map, cm, parent_requester, name)
-    # ================================================================
-    # Wanted to print the return value
-    # ================================================================
+
