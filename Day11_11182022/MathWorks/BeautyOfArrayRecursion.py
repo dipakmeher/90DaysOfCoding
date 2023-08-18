@@ -1,4 +1,4 @@
-# Wrong answer with the commented inputs
+# Right answer
 def beautyOfArray(arr, c, n, i):
     if(len(arr) == i or i == n):
         return c
