@@ -14,7 +14,7 @@ def generateBalancedParen(open,closed, op):
         generateBalancedParen(open-1,closed,op1)
    
     if(open<closed): # we are allowed to add more open brackets
-        print("Open: ", open)
+        print("close: ", closed)
         op2 = op2 + ")"
         # closed = closed - 1
         generateBalancedParen(open,closed - 1,op2)
