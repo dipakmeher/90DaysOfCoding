@@ -1,6 +1,6 @@
 #https://practice.geeksforgeeks.org/problems/stock-buy-and-sell2615/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
-
-#Functions
+# doing that
+#Functions 
 def buySellStocks(stock):
     i = 0
     j = i+1
