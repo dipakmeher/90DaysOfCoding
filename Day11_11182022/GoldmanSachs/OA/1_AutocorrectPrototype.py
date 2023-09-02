@@ -1,3 +1,4 @@
+# Return an array of strings that are anagrams to queries, sorted alphabetically ascending
 def getSearchResults(words, queries):
     sorted_words = [sorted(word) for word in words]
     result = []
