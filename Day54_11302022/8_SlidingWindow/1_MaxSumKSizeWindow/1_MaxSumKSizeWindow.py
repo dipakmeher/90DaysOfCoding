@@ -1,5 +1,4 @@
 # Find the maximum sum subarray of window size k
-# To continue tomorrow
 #Function
 def maxSumKSizeWindow(arr,n,k):
     i = 0
