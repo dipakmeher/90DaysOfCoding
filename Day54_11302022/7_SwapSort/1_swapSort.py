@@ -1,5 +1,5 @@
 # This technique can be used to solve the problem on non-static array in O(1) space
-# 1 ro N array: Find the missing elements
+# 1 to N array: Find the missing elements
 # This problem can be done in 2 more ways: Usign HashMap and   
 
 #Function
